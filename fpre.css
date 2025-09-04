@@ -1,0 +1,124 @@
+/* ==========================
+   Reset: 全ての要素の余白・パディングをリセット
+========================== */
+* {
+  margin: 0;           /* デフォルトの余白をリセット */
+  padding: 0;          /* デフォルトのパディングをリセット */
+  box-sizing: border-box; /* 幅計算にpaddingを含める */
+}
+
+/* ==========================
+   Body: 全体のフォント・背景・文字色・左右余白
+========================== */
+body {
+  font-family: Helvetica, Arial, sans-serif; /* フォント指定 */
+  background-color: #ffffff; /* 背景色 */
+  color: #ff00a2;            /* 文字色 */
+  line-height: 1.8;          /* 行間 */
+  padding: 0 10px;           /* ページ左右10px余白 */
+}
+
+/* ==========================
+   Hero Section: トップの大見出し
+========================== */
+.hero {
+  min-height: 10vh;            /* 高さ */
+  display: flex;               
+  justify-content: center;      /* 横中央寄せ */
+  align-items: center;          /* 縦中央寄せ */
+  text-align: center;
+  margin-top: 5%;               /* 上余白 */
+  position: relative;           
+}
+
+.hero-content {
+  position: absolute;           /* 中央に配置 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 5rem;       /* タイトルサイズ */
+  font-weight: 300;      /* 細めの文字 */
+  margin-bottom: 20px;    
+  letter-spacing: 4px;   /* 文字間隔 */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: #fff;
+}
+
+/* ==========================
+   Concept Section: シーズンのコンセプト説明
+========================== */
+.text-block {
+  padding: 40px 10% 120px; /* 上40px 下120px 左右10%余白 */
+  text-align: center;
+}
+
+.text-block h2 {
+  font-size: 2rem;     /* 小見出しサイズ */
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.text-block p {
+  font-size: 1rem;     /* 本文サイズ */
+  font-weight: 200;
+  color: #bbb;          /* 薄い文字色 */
+}
+
+/* ==========================
+   Collection Section: 作品コレクション
+========================== */
+.collection {
+  display: flex;
+  flex-direction: column;      /* 上下に積む */
+  gap: 50px;                   /* 各ブロック間の縦の余白 */
+  margin: 120px auto;          /* 上下余白 + 中央寄せ */
+  max-width: 2800px;           /* 全体幅を制限 */
+  padding: 0 10px;             /* ページ左右10px余白 */
+}
+
+/* 画像2枚を1行に配置するブロック */
+.collection .half {
+  display: flex;
+  gap: 0px;                   /* 画像同士の間隔10px */
+  align-items: flex-start;      /* 上端を揃える */
+}
+
+/* 左右画像共通: 元画像サイズに依存せず小さく表示、縦長5:6 */
+.collection .half img {
+  width: calc(50% - 5px);       /* 左右幅を揃え、gap半分を引く */
+  aspect-ratio: 5 / 6;          /* 縦長比率 */
+  object-fit: cover;             /* 枠内に画像収める */
+  margin: 0;                     /* 余白なし */
+}
+
+/* ==========================
+   Footer Section: ページ下部
+========================== */
+footer {
+  text-align: center;
+  padding: 60px 10%;      /* 上下60px 左右10%余白 */
+  font-size: 0.8rem;      
+  color: #888;             /* 薄い文字色 */
+}
+
+/* ==========================
+   アニメーション: フェードイン
+========================== */
+.fade-in {
+  opacity: 0;                      /* 初期は透明 */
+  transform: translateY(50px);     /* 下にずらす */
+  transition: opacity 1.2s ease, transform 1.2s ease; /* アニメーション */
+}
+
+.fade-in.visible {
+  opacity: 1;                      /* 表示 */
+  transform: translateY(0);        /* 元の位置に戻す */
+}
